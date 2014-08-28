@@ -1,0 +1,10 @@
+﻿@model GameStore.Domain.Entities.Cart
+
+<div class="navbar-right">
+    <a class="btn btn-primary" href='@Url.Action("Index", "Cart", new { returnUrl = Request.Url.PathAndQuery })'>
+        <i class="fa fa-shopping-cart"></i>  <span class="hidden-xs">
+        @Model.Lines.Sum(x => x.quantity) items 
+        @Model.ComputeTotalValue().ToString("c")</span>
+    </a>
+</div>
+

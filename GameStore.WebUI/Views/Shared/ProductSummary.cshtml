@@ -1,0 +1,34 @@
+﻿@model GameStore.Domain.Entities.Product
+
+
+
+<div class="col-md-4 col-sm-6">
+    <div class="product">
+        <div>
+            @if (Model.imageData != null)
+            {
+                <img src="@Url.Action("GetImage","Product", new{Model.productID})"
+                     alt="" class="img-responsive image1">
+            }
+            else
+            {
+                <img src="~/Img/no-photo.jpg" alt="" class="img-responsive image1" />
+            }
+        </div>
+        <div class="text">
+            <h3>@Model.name</h3>
+            <p>@Model.description</p>
+            <p class="price">@Model.price</p>
+            <p class="buttons">
+                @using (Html.BeginForm("AddToCart", "Cart"))
+                {
+                    <div class="text-center">
+                        @Html.HiddenFor(x => x.productID)
+                        @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
+                        <input type="submit" class="btn btn-primary" value="Add to cart" />
+                    </div>
+                }
+            </p>
+        </div>
+    </div>
+</div>

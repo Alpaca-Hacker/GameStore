@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700|Merriweather:400,400italic'
+          rel='stylesheet' type='text/css'>
+    <link href="~/Content/font-awesome.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/Style.css" rel="stylesheet" id="theme-stylesheet" />
+    <link href="~/Content/ErrorStyles.css" rel="stylesheet" />
+
+    <script src="~/Scripts/respond.min.js"></script>
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <div class="navbar navbar-default navbar-fixed-top yamm" role="navigation" id="navbar">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand home" href=@Url.Action("List","Product")>
+                    <img src="~/Img/logo.png" alt="Full logo" class="hidden-xs hidden-sm">
+                    <img src="~/Img/logo-small.png" alt="Small logo" class="visible-xs visible-sm"><span class="sr-only">GameStore - go to homepage</span>
+                </a>
+            </div>
+            <div class="navbar-buttons">
+                <button type="button" class="navbar-toggle btn-primary" data-toggle="collapse" data-target="#navigation">
+                    <span class="sr-only">Toggle navigation</span>
+                    <i class="fa fa-align-justify"></i>
+                </button>
+                @Html.Action("Summary", "Cart")
+
+            </div>
+        </div>
+    </div>
+    <div id="all">
+        <div id="content">
+            <div class="container">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="box text-center">
+                            <div class="row">
+                                <div class="col-sm-10 col-sm-offset-1">
+
+                                    <h1>@ViewBag.Title</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row panel">
+                    <div id="categories" class="col-xs-3">
+                        @Html.Action("Menu", "Nav")
+                    </div>
+                    <div class="col-xs-8">
+                        @RenderBody()
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="copyright">
+        <div class="container">
+            <div class="col-md-12">
+                <p class="pull-left">&copy; 2014. GameStore responsive Ecommerce example by <a href="http://www.DevelopGent.com" class="external">Paul Gent</a>.</p>
+                <p class="pull-right">
+                    <img src="~/Img/payment.png" alt="payments accepted">
+                </p>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script src="~/Scripts/bootstrap.js"></script>
+<script src="~/Scripts/front.js"></script>
